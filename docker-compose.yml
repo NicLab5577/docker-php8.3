@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  apache61014:
+    #image: niclab/php8.3
+    build: .
+    working_dir: /var/www
+    ports:
+      - 61014:80
+    volumes:
+      - ./root:/var/www
+      - ./docker/php-web/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/php-web/custom-vhost.conf:/etc/apache2/sites-available/000-default.conf
